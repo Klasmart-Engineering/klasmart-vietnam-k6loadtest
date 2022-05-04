@@ -11,8 +11,7 @@ export function contentPlayTest(h5pEndpoint, token) {
     const url  = `${h5pEndpoint}/h5p/play/${chooseRandom(contentIds[APP_URL])}?jwt=${token}`
 
     const response = http.get(url, {
-        headers: apiHeaders,
-        tags: { name: 'contentPlayTest' }
+        headers: apiHeaders
     });
 
     const cfCache = response.headers["X-Cache"]

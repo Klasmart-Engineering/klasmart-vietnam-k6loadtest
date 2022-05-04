@@ -11,8 +11,7 @@ export function librariesAjaxTest(h5pEndpoint, token) {
     
     const url  = `${h5pEndpoint}/${ajaxPath}&jwt=${token}`
     const response = http.get(url, {
-        headers: apiHeaders,
-        tags: { name: 'librariesAjaxTest' }
+        headers: apiHeaders
     });
     if (response.status !== 200) {
         console.error(`${response.status}: ${url}`)

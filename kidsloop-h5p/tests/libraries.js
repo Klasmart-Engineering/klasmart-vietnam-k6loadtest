@@ -10,8 +10,7 @@ export function librariesTest(h5pEndpoint, token) {
     const libraryPath = `h5p/libraries/${library.name}-${library.major}.${library.minor}/library.json`
     const url2  = `${h5pEndpoint}/${libraryPath}?jwt=${token}`
     const response2 = http.get(url2, {
-        headers: apiHeaders,
-        tags: { name: 'librariesTest' }
+        headers: apiHeaders
     });
     if (response2.status !== 200) {
         console.error(`${response2.status}: ${url2}`)

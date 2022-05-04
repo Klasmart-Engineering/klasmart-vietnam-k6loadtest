@@ -6,7 +6,7 @@
 # Node artifact files
 node_modules/
 dist/
-utils/env-*
+
 # Compiled Java class files
 *.class
 
@@ -47,3 +47,7 @@ Thumbs.db
 *.flv
 *.mov
 *.wmv
+
+#Misc codebuild files
+nri-statsd.toml
+codebuild_build.sh

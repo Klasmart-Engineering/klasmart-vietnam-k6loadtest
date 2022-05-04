@@ -28,7 +28,7 @@ export default function main(data) {
 
 export function getContentsFolders(orgID) {
 
-  const response = http.get(`${CMSEndpoint}/contents_folders?order_by=-create_at&org_id=${orgID}&publish_status=published`, {
+  const response = http.get(`${CMSEndpoint}/contents_folders?content_type=2&order_by=-create_at&org_id=${orgID}&page=1&page_size=10&publish_status=published`, {
       headers: APIHeaders
   });
 

@@ -179,3 +179,75 @@ export const GET_MY_CLASSES = `query myClasses {
     }
   }
 }`;
+
+export const GET_MY_USER_PROFILE = `query myUserProfile {
+  myUser {
+    profiles {
+      id
+      givenName
+      familyName
+      avatar
+      contactInfo {
+        email
+        phone
+        username
+        __typename
+      }
+      __typename
+    }
+    node {
+      id
+      givenName
+      familyName
+      avatar
+      contactInfo {
+        email
+        phone
+        username
+        __typename
+      }
+      username
+      organizationMembershipsConnection(direction: FORWARD) {
+        edges {
+          node {
+            organization {
+              id
+              name
+              branding {
+                primaryColor
+                iconImageURL
+                __typename
+              }
+              owners {
+                email
+                __typename
+              }
+              contactInfo {
+                phone
+                __typename
+              }
+              __typename
+            }
+            rolesConnection(direction: FORWARD) {
+              edges {
+                node {
+                  id
+                  name
+                  __typename
+                }
+                __typename
+              }
+              __typename
+            }
+            __typename
+          }
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+  __typename
+}`;

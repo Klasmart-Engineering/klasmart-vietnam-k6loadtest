@@ -1,0 +1,274 @@
+{
+    "root_group": {
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {
+            "setup": {
+                "name": "setup",
+                "path": "::setup",
+                "id": "5c0f8025f7e0b6654089e5b00e950f1a",
+                "groups": {
+                    "Load Login Page": {
+                        "name": "Load Login Page",
+                        "path": "::setup::Load Login Page",
+                        "id": "df1b54c277337070eb6cdbe97e2ddea9",
+                        "groups": {},
+                        "checks": {
+                                "is openid-configuration status 200": {
+                                    "name": "is openid-configuration status 200",
+                                    "path": "::setup::Load Login Page::is openid-configuration status 200",
+                                    "id": "e27bfe7f2760e259406618a6e8545357",
+                                    "passes": 1,
+                                    "fails": 0
+                                },
+                                "is authorize status 200": {
+                                    "name": "is authorize status 200",
+                                    "path": "::setup::Load Login Page::is authorize status 200",
+                                    "id": "572057cbf3601a01260161ea23e3a236",
+                                    "passes": 1,
+                                    "fails": 0
+                                }
+                            }
+                    },
+                    "Auth and Redirect": {
+                        "name": "Auth and Redirect",
+                        "path": "::setup::Auth and Redirect",
+                        "id": "816373613b6a81bf61dbeb2a00da1b1a",
+                        "groups": {},
+                        "checks": {
+                                "is SelfAsserted status 200": {
+                                    "path": "::setup::Auth and Redirect::is SelfAsserted status 200",
+                                    "id": "978dda12a1b6ba5cbccbc4e4acf8ee7b",
+                                    "passes": 1,
+                                    "fails": 0,
+                                    "name": "is SelfAsserted status 200"
+                                },
+                                "is confirmed status 302": {
+                                    "name": "is confirmed status 302",
+                                    "path": "::setup::Auth and Redirect::is confirmed status 302",
+                                    "id": "b6fb6d5909694f4d41cecae0ee471c28",
+                                    "passes": 1,
+                                    "fails": 0
+                                },
+                                "redirect does not contain error": {
+                                    "fails": 0,
+                                    "name": "redirect does not contain error",
+                                    "path": "::setup::Auth and Redirect::redirect does not contain error",
+                                    "id": "38de1c4eeaeb483852ef0cf48c177bb8",
+                                    "passes": 1
+                                }
+                            }
+                    },
+                    "Token": {
+                        "groups": {},
+                        "checks": {
+                                "is openid-configuration status 200": {
+                                    "id": "f289230779dbb8e403ded82068a9fb32",
+                                    "passes": 1,
+                                    "fails": 0,
+                                    "name": "is openid-configuration status 200",
+                                    "path": "::setup::Token::is openid-configuration status 200"
+                                },
+                                "is token status 200": {
+                                    "passes": 1,
+                                    "fails": 0,
+                                    "name": "is token status 200",
+                                    "path": "::setup::Token::is token status 200",
+                                    "id": "517085fe86b3d49b8246d311a9736b08"
+                                }
+                            },
+                        "name": "Token",
+                        "path": "::setup::Token",
+                        "id": "774d44718325229aaa608acaa2a7c04c"
+                    }
+                },
+                "checks": {
+                    "Transfer status code was 200": {
+                        "fails": 0,
+                        "name": "Transfer status code was 200",
+                        "path": "::setup::Transfer status code was 200",
+                        "id": "19150edd2fc46707a3ec34828fe4a137",
+                        "passes": 1
+                    },
+                    "Transfer returned an access cookie": {
+                        "id": "224cc3bd7ed87d01f9727cf1ff17f995",
+                        "passes": 1,
+                        "fails": 0,
+                        "name": "Transfer returned an access cookie",
+                        "path": "::setup::Transfer returned an access cookie"
+                    },
+                    "UserID status code was 200": {
+                        "name": "UserID status code was 200",
+                        "path": "::setup::UserID status code was 200",
+                        "id": "e03145be0710886a60b4a97c5d8dbfe6",
+                        "passes": 1,
+                        "fails": 0
+                    },
+                    "User ID value returned": {
+                        "name": "User ID value returned",
+                        "path": "::setup::User ID value returned",
+                        "id": "c545e0ce363e1a47f08e7b3fe076b25d",
+                        "passes": 1,
+                        "fails": 0
+                    },
+                    "Switch status code was 200": {
+                        "fails": 0,
+                        "name": "Switch status code was 200",
+                        "path": "::setup::Switch status code was 200",
+                        "id": "9facd2a689f4cded3db55ebe37b5a270",
+                        "passes": 1
+                    },
+                    "Switch returned an access cookie": {
+                        "path": "::setup::Switch returned an access cookie",
+                        "id": "7f71997a3f8c3344e28358525d598d6d",
+                        "passes": 1,
+                        "fails": 0,
+                        "name": "Switch returned an access cookie"
+                    }
+                }
+            }
+        },
+        "checks": {},
+        "name": ""
+    },
+    "metrics": {
+        "requests over specified threshold": {
+            "count": 159,
+            "rate": 2.496173397579917
+        },
+        "iterations": {
+            "count": 2966,
+            "rate": 46.5638383473084
+        },
+        "http_req_connecting": {
+            "max": 23.016,
+            "p(90)": 0,
+            "p(99)": 5.355599999999997,
+            "avg": 0.10415428571428573,
+            "min": 0,
+            "med": 0
+        },
+        "http_req_sending": {
+            "avg": 0.24215932773109236,
+            "min": 0.066,
+            "med": 0.212,
+            "max": 12.529,
+            "p(90)": 0.381,
+            "p(99)": 0.5165599999999986
+        },
+        "iteration_duration": {
+            "min": 155.999854,
+            "med": 375.716776,
+            "max": 3285.941606,
+            "p(90)": 830.2631292000001,
+            "p(99)": 1424.0948066600013,
+            "avg": 465.1997335409504
+        },
+        "dropped_iterations": {
+            "count": 35,
+            "rate": 0.5494721315427491
+        },
+        "http_req_duration{expected_response:true}": {
+            "p(90)": 826.4361999999999,
+            "p(99)": 1417.954699999999,
+            "avg": 463.00270823529513,
+            "min": 22.086,
+            "med": 375.058,
+            "max": 2939.592
+        },
+        "group_duration": {
+            "med": 1043.652141,
+            "max": 1596.538539,
+            "p(90)": 1485.9612594,
+            "p(99)": 1585.48081104,
+            "avg": 956.5056483333333,
+            "min": 229.326265
+        },
+        "http_req_duration": {
+            "p(90)": 826.4361999999999,
+            "p(99)": 1417.954699999999,
+            "avg": 463.00270823529513,
+            "min": 22.086,
+            "med": 375.058,
+            "max": 2939.592
+        },
+        "http_req_blocked": {
+            "min": 0,
+            "med": 0.001,
+            "max": 203.316,
+            "p(90)": 0.001,
+            "p(99)": 26.208959999999987,
+            "avg": 0.5769768067226735
+        },
+        "checks": {
+            "passes": 13,
+            "fails": 0,
+            "value": 1
+        },
+        "vus_max": {
+            "value": 45,
+            "min": 10,
+            "max": 45
+        },
+        "data_received": {
+            "count": 57599562,
+            "rate": 904267.2602305352
+        },
+        "http_req_tls_handshaking": {
+            "avg": 0.3894840336134452,
+            "min": 0,
+            "med": 0,
+            "max": 175.713,
+            "p(90)": 0,
+            "p(99)": 19.207299999999975
+        },
+        "vus": {
+            "value": 45,
+            "min": 0,
+            "max": 45
+        },
+        "http_req_waiting": {
+            "med": 367.623,
+            "max": 2930.168,
+            "p(90)": 815.7681999999999,
+            "p(99)": 1397.0260999999962,
+            "avg": 454.60976773109223,
+            "min": 21.616
+        },
+        "http_req_receiving": {
+            "avg": 8.150781176470597,
+            "min": 0.075,
+            "med": 6.029,
+            "max": 313.038,
+            "p(90)": 10.223600000000001,
+            "p(99)": 27.14999999999994
+        },
+        "data_sent": {
+            "count": 1783446,
+            "rate": 27998.682146039708
+        },
+        "http_req_failed": {
+            "passes": 0,
+            "fails": 2975,
+            "value": 0
+        },
+        "http_reqs": {
+            "count": 2975,
+            "rate": 46.70513118113367
+        }
+    },
+    "setup_data": {
+        "userPool": {
+            "0": "eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3NDJjOWE1LWJiNzktNGEzYi04MDVjLWMzY2MzMzZiNWEzOSIsImVtYWlsIjoicWF2bjFAY2FsbWlkLmNvbSIsImV4cCI6MTY1MDUyMjU4MCwiaXNzIjoia2lkc2xvb3AifQ.VL-NYx0FckEi2kUTnqU6AVbMzmAy2Ol0hx53ypsNbJqP8Pa7y6HM5Pi4RonY5sZV7JdDmLbHz8tcb_IRqDsVVM0ZcCODxm02-23LdENtPw7BJIVfYG1CVs2ALeHlhUPYM5Ezhw9dCYyXCkS-fCHP7kfg3YosOPaxWOHsZ4BODyjYfNcBow8mHV29Qbl5oLx7ATbot1RUro2jmAVkkzPUH71D8ZZudT84lZxKStuSrmlPNUXG-rl46J61Ur69HAqKRyze8t_96RYlm0xPq73rjyyRhAHH66TfOD3JhE1r01p_JvS8-NFbkvpIfEyG95_16ycp2YqF31syvJ6l6NtpHQ",
+            "1": "eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3NDJjOWE1LWJiNzktNGEzYi04MDVjLWMzY2MzMzZiNWEzOSIsImVtYWlsIjoicWF2bjFAY2FsbWlkLmNvbSIsImV4cCI6MTY1MDUyMjU4MCwiaXNzIjoia2lkc2xvb3AifQ.VL-NYx0FckEi2kUTnqU6AVbMzmAy2Ol0hx53ypsNbJqP8Pa7y6HM5Pi4RonY5sZV7JdDmLbHz8tcb_IRqDsVVM0ZcCODxm02-23LdENtPw7BJIVfYG1CVs2ALeHlhUPYM5Ezhw9dCYyXCkS-fCHP7kfg3YosOPaxWOHsZ4BODyjYfNcBow8mHV29Qbl5oLx7ATbot1RUro2jmAVkkzPUH71D8ZZudT84lZxKStuSrmlPNUXG-rl46J61Ur69HAqKRyze8t_96RYlm0xPq73rjyyRhAHH66TfOD3JhE1r01p_JvS8-NFbkvpIfEyG95_16ycp2YqF31syvJ6l6NtpHQ",
+            "2": "eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3NDJjOWE1LWJiNzktNGEzYi04MDVjLWMzY2MzMzZiNWEzOSIsImVtYWlsIjoicWF2bjFAY2FsbWlkLmNvbSIsImV4cCI6MTY1MDUyMjU4MCwiaXNzIjoia2lkc2xvb3AifQ.VL-NYx0FckEi2kUTnqU6AVbMzmAy2Ol0hx53ypsNbJqP8Pa7y6HM5Pi4RonY5sZV7JdDmLbHz8tcb_IRqDsVVM0ZcCODxm02-23LdENtPw7BJIVfYG1CVs2ALeHlhUPYM5Ezhw9dCYyXCkS-fCHP7kfg3YosOPaxWOHsZ4BODyjYfNcBow8mHV29Qbl5oLx7ATbot1RUro2jmAVkkzPUH71D8ZZudT84lZxKStuSrmlPNUXG-rl46J61Ur69HAqKRyze8t_96RYlm0xPq73rjyyRhAHH66TfOD3JhE1r01p_JvS8-NFbkvpIfEyG95_16ycp2YqF31syvJ6l6NtpHQ",
+            "3": "eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3NDJjOWE1LWJiNzktNGEzYi04MDVjLWMzY2MzMzZiNWEzOSIsImVtYWlsIjoicWF2bjFAY2FsbWlkLmNvbSIsImV4cCI6MTY1MDUyMjU4MCwiaXNzIjoia2lkc2xvb3AifQ.VL-NYx0FckEi2kUTnqU6AVbMzmAy2Ol0hx53ypsNbJqP8Pa7y6HM5Pi4RonY5sZV7JdDmLbHz8tcb_IRqDsVVM0ZcCODxm02-23LdENtPw7BJIVfYG1CVs2ALeHlhUPYM5Ezhw9dCYyXCkS-fCHP7kfg3YosOPaxWOHsZ4BODyjYfNcBow8mHV29Qbl5oLx7ATbot1RUro2jmAVkkzPUH71D8ZZudT84lZxKStuSrmlPNUXG-rl46J61Ur69HAqKRyze8t_96RYlm0xPq73rjyyRhAHH66TfOD3JhE1r01p_JvS8-NFbkvpIfEyG95_16ycp2YqF31syvJ6l6NtpHQ",
+            "4": "eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3NDJjOWE1LWJiNzktNGEzYi04MDVjLWMzY2MzMzZiNWEzOSIsImVtYWlsIjoicWF2bjFAY2FsbWlkLmNvbSIsImV4cCI6MTY1MDUyMjU4MCwiaXNzIjoia2lkc2xvb3AifQ.VL-NYx0FckEi2kUTnqU6AVbMzmAy2Ol0hx53ypsNbJqP8Pa7y6HM5Pi4RonY5sZV7JdDmLbHz8tcb_IRqDsVVM0ZcCODxm02-23LdENtPw7BJIVfYG1CVs2ALeHlhUPYM5Ezhw9dCYyXCkS-fCHP7kfg3YosOPaxWOHsZ4BODyjYfNcBow8mHV29Qbl5oLx7ATbot1RUro2jmAVkkzPUH71D8ZZudT84lZxKStuSrmlPNUXG-rl46J61Ur69HAqKRyze8t_96RYlm0xPq73rjyyRhAHH66TfOD3JhE1r01p_JvS8-NFbkvpIfEyG95_16ycp2YqF31syvJ6l6NtpHQ",
+            "5": "eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3NDJjOWE1LWJiNzktNGEzYi04MDVjLWMzY2MzMzZiNWEzOSIsImVtYWlsIjoicWF2bjFAY2FsbWlkLmNvbSIsImV4cCI6MTY1MDUyMjU4MCwiaXNzIjoia2lkc2xvb3AifQ.VL-NYx0FckEi2kUTnqU6AVbMzmAy2Ol0hx53ypsNbJqP8Pa7y6HM5Pi4RonY5sZV7JdDmLbHz8tcb_IRqDsVVM0ZcCODxm02-23LdENtPw7BJIVfYG1CVs2ALeHlhUPYM5Ezhw9dCYyXCkS-fCHP7kfg3YosOPaxWOHsZ4BODyjYfNcBow8mHV29Qbl5oLx7ATbot1RUro2jmAVkkzPUH71D8ZZudT84lZxKStuSrmlPNUXG-rl46J61Ur69HAqKRyze8t_96RYlm0xPq73rjyyRhAHH66TfOD3JhE1r01p_JvS8-NFbkvpIfEyG95_16ycp2YqF31syvJ6l6NtpHQ",
+            "6": "eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3NDJjOWE1LWJiNzktNGEzYi04MDVjLWMzY2MzMzZiNWEzOSIsImVtYWlsIjoicWF2bjFAY2FsbWlkLmNvbSIsImV4cCI6MTY1MDUyMjU4MCwiaXNzIjoia2lkc2xvb3AifQ.VL-NYx0FckEi2kUTnqU6AVbMzmAy2Ol0hx53ypsNbJqP8Pa7y6HM5Pi4RonY5sZV7JdDmLbHz8tcb_IRqDsVVM0ZcCODxm02-23LdENtPw7BJIVfYG1CVs2ALeHlhUPYM5Ezhw9dCYyXCkS-fCHP7kfg3YosOPaxWOHsZ4BODyjYfNcBow8mHV29Qbl5oLx7ATbot1RUro2jmAVkkzPUH71D8ZZudT84lZxKStuSrmlPNUXG-rl46J61Ur69HAqKRyze8t_96RYlm0xPq73rjyyRhAHH66TfOD3JhE1r01p_JvS8-NFbkvpIfEyG95_16ycp2YqF31syvJ6l6NtpHQ",
+            "7": "eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3NDJjOWE1LWJiNzktNGEzYi04MDVjLWMzY2MzMzZiNWEzOSIsImVtYWlsIjoicWF2bjFAY2FsbWlkLmNvbSIsImV4cCI6MTY1MDUyMjU4MCwiaXNzIjoia2lkc2xvb3AifQ.VL-NYx0FckEi2kUTnqU6AVbMzmAy2Ol0hx53ypsNbJqP8Pa7y6HM5Pi4RonY5sZV7JdDmLbHz8tcb_IRqDsVVM0ZcCODxm02-23LdENtPw7BJIVfYG1CVs2ALeHlhUPYM5Ezhw9dCYyXCkS-fCHP7kfg3YosOPaxWOHsZ4BODyjYfNcBow8mHV29Qbl5oLx7ATbot1RUro2jmAVkkzPUH71D8ZZudT84lZxKStuSrmlPNUXG-rl46J61Ur69HAqKRyze8t_96RYlm0xPq73rjyyRhAHH66TfOD3JhE1r01p_JvS8-NFbkvpIfEyG95_16ycp2YqF31syvJ6l6NtpHQ",
+            "8": "eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3NDJjOWE1LWJiNzktNGEzYi04MDVjLWMzY2MzMzZiNWEzOSIsImVtYWlsIjoicWF2bjFAY2FsbWlkLmNvbSIsImV4cCI6MTY1MDUyMjU4MCwiaXNzIjoia2lkc2xvb3AifQ.VL-NYx0FckEi2kUTnqU6AVbMzmAy2Ol0hx53ypsNbJqP8Pa7y6HM5Pi4RonY5sZV7JdDmLbHz8tcb_IRqDsVVM0ZcCODxm02-23LdENtPw7BJIVfYG1CVs2ALeHlhUPYM5Ezhw9dCYyXCkS-fCHP7kfg3YosOPaxWOHsZ4BODyjYfNcBow8mHV29Qbl5oLx7ATbot1RUro2jmAVkkzPUH71D8ZZudT84lZxKStuSrmlPNUXG-rl46J61Ur69HAqKRyze8t_96RYlm0xPq73rjyyRhAHH66TfOD3JhE1r01p_JvS8-NFbkvpIfEyG95_16ycp2YqF31syvJ6l6NtpHQ",
+            "9": "eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3NDJjOWE1LWJiNzktNGEzYi04MDVjLWMzY2MzMzZiNWEzOSIsImVtYWlsIjoicWF2bjFAY2FsbWlkLmNvbSIsImV4cCI6MTY1MDUyMjU4MCwiaXNzIjoia2lkc2xvb3AifQ.VL-NYx0FckEi2kUTnqU6AVbMzmAy2Ol0hx53ypsNbJqP8Pa7y6HM5Pi4RonY5sZV7JdDmLbHz8tcb_IRqDsVVM0ZcCODxm02-23LdENtPw7BJIVfYG1CVs2ALeHlhUPYM5Ezhw9dCYyXCkS-fCHP7kfg3YosOPaxWOHsZ4BODyjYfNcBow8mHV29Qbl5oLx7ATbot1RUro2jmAVkkzPUH71D8ZZudT84lZxKStuSrmlPNUXG-rl46J61Ur69HAqKRyze8t_96RYlm0xPq73rjyyRhAHH66TfOD3JhE1r01p_JvS8-NFbkvpIfEyG95_16ycp2YqF31syvJ6l6NtpHQ"
+        }
+    }
+}

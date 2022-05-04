@@ -7,8 +7,7 @@ export function contentTypeCacheTest(h5pEndpoint, token) {
     const url = `${h5pEndpoint}/h5p/ajax?action=content-type-cache&jwt=${token}`
     
     const response = http.get(url, {
-        headers: apiHeaders,
-        tags: { name: 'contentTypeCacheTest' }
+        headers: apiHeaders
     });
     
     if (response.status !== 200) {

@@ -7,8 +7,7 @@ export function coreTest(h5pEndpoint, token) {
 
     const url  = `${h5pEndpoint}/h5p/core/${chooseRandom(corePaths)}?jwt=${token}`
     const response = http.get(url, {
-        headers: apiHeaders,
-        tags: { name: 'coreTest' }
+        headers: apiHeaders
     });
     if (response.status !== 200) {
         console.error(`${response.status}: ${url}`)

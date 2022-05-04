@@ -28,7 +28,7 @@ export default function main(data) {
 
 export function getAssessmentsForStudent(orgID) {
 
-  const response = http.get(`${CMSEndpoint}/assessments_for_student?complete_at_ge=1640252069&complete_at_le=1641461669&order_by=-complete_at&org_id=${orgID}&page=1&page_size=5&type=home_fun_study`, {
+  const response = http.get(`${CMSEndpoint}/assessments_for_student?complete_at_ge=1648696918&complete_at_le=1649906518&order_by=-complete_at&org_id=${orgID}&page=1&page_size=5&type=home_fun_study`, {
       headers: APIHeaders
   });
 

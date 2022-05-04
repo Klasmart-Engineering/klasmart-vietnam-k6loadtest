@@ -3,12 +3,15 @@ import { check, group } from 'k6';
 import {
   APIHeaders,
   defaultSetup,
-  initUserCookieJar,
+  initCookieJar,
   requestOverThreshold,
   threshold,
   userEndpoint
-} from './common.js';
-import * as queries from './queries/landing.js'
+} from '../utils/common.js';
+import * as queries from '../kidsloop-user-service/queries/landing.js'
+import { getAssessmentsSummary } from '../kidsloop-cms/endpoints/assessments-summary.js'
+import { getSchedulesTimeView } from '../kidsloop-cms/endpoints/schedules-time-view.js';
+import { getAssessmentsForStudent } from '../kidsloop-cms/endpoints/assessments-for-students.js';
 import * as env from '../utils/env.js';
 import { defaultRateOptions, isRequestSuccessful } from '../utils/common.js';
 import { Counter, Trend } from 'k6/metrics';
@@ -31,9 +34,18 @@ export function setup() {
 
 export default function main(data) {
 
-  initUserCookieJar(data.accessCookie);
-  
-  landingTest();
+  initCookieJar(data.accessCookie);
+
+  getUserMyProfile(); //getUserMyProfile
+
+  landingTest(3); //MEMBERSHIPS
+
+  getAssessmentsSummary(data.orgID);
+
+  getSchedulesTimeView(data.orgID);
+
+  getAssessmentsForStudent(data.orgID);
+
 };
 
 function sizeOfHeaders(hdrs) {
@@ -66,9 +78,7 @@ function checkRequest(response) {
   isRequestSuccessful(response);
 };
 
-export function landingTest() {
-
-  let testValue = env.TESTVAL;
+export function landingTest(testValue) {
 
   if (!testValue) {
 
@@ -189,5 +199,29 @@ export function landingTest() {
 
       checkRequest(response);
     }
+
+    if (testValue == 9 || testValue == 'all') {
+      response = http.post(userEndpoint, JSON.stringify({
+        query: queries.GET_MY_USER_PROFILE,
+        operationName: 'myUser',
+      }), {
+        headers: APIHeaders
+      });
+
+      checkRequest(response);
+    }
   })
+}
+
+export function getUserMyProfile() {
+  let response;
+
+  response = http.post(userEndpoint, JSON.stringify({
+    query: queries.GET_MY_USER_PROFILE,
+    operationName: 'myUser',
+  }), {
+    headers: APIHeaders
+  });
+
+  checkRequest(response);
 }

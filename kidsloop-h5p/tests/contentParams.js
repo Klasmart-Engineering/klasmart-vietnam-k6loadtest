@@ -11,8 +11,7 @@ export function contentParamsTest(h5pEndpoint, token) {
     const url = `${h5pEndpoint}/h5p/params/${chooseRandom(contentIds[APP_URL])}?jwt=${token}`
 
     const response = http.get(url, {
-        headers: apiHeaders,
-        tags: { name: 'contentParamsTest' }
+        headers: apiHeaders
     });
 
     if (response.status !== 200) {

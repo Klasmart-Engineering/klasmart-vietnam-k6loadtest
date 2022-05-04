@@ -1,8 +1,7 @@
-export const APP_URL = "loadtest.kidsloop.vn"
-export const APP_URL_TEST = "loadtest.kidsloop.vn"
+export const APP_URL = "beta.kidsloop.vn"
+export const APP_URL_TEST = "beta.kidsloop.vn"
 export const LOGIN_URL = "beta.kidsloop.vn"
 export const USERNAME = "qavn1@calmid.com"
-// export const USERNAME = "qavn1+student1@calmid.com"
 export const USERNAME_ADMIN = "qavn1@calmid.com"
 export const USERNAME_TEACHER = "qavn1+teacher1@calmid.com"
 export const USERNAME_STUDENT = "qavn1+student1@calmid.com"
@@ -23,11 +22,10 @@ export const POLICY_NAME = "B2C_1A_RELYING_PARTY_SIGN_UP_LOG_IN"
 export const B2C = true
 
 //Assessment
-export const ROOM_ID = "62593b8f5296d68196c44ae2"
-export const scheduleID = "62593b8f5296d68196c44ae2"
+export const ROOM_ID = "62305e514893234c08aa38c2"
 
 //Rate testing
 export const rate = __ENV.rate ? __ENV.rate : 1;
 export const vus = __ENV.vus ? __ENV.vus : 10;
-export const duration = __ENV.duration ? __ENV.duration : '10m';
+export const duration = __ENV.duration ? __ENV.duration : '1m';
 export const poolCap = __ENV.poolCap ? __ENV.poolCap : 500;

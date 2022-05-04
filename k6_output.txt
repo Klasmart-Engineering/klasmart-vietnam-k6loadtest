@@ -1,0 +1,51 @@
+
+k6 run -e duration=1m -e vus=10 -e rate=50 kidsloop-assessment-service/multi_scoreByUserTest.js
+
+running (1m06.6s), 000/048 VUs, 2962 complete and 0 interrupted iterations
+main ✓ [ 100% ] 000/048 VUs  1m0s  50 iters/s
+
+     █ setup
+
+       ✓ Transfer status code was 200
+       ✓ Transfer returned an access cookie
+       ✓ UserID status code was 200
+       ✓ User ID value returned
+       ✓ Switch status code was 200
+       ✓ Switch returned an access cookie
+
+       █ Load Login Page
+
+         ✓ is openid-configuration status 200
+         ✓ is authorize status 200
+
+       █ Auth and Redirect
+
+         ✓ is SelfAsserted status 200
+         ✓ is confirmed status 302
+         ✓ redirect does not contain error
+
+       █ Token
+
+         ✓ is openid-configuration status 200
+         ✓ is token status 200
+
+     checks..............................: 100.00% ✓ 13        ✗ 0   
+     data_received.......................: 57 MB   862 kB/s
+     data_sent...........................: 1.8 MB  27 kB/s
+     dropped_iterations..................: 38      0.570597/s
+     group_duration......................: avg=1.47s    min=423.74ms med=1.81s    max=2.17s    p(90)=2.1s     p(99)=2.17s  
+     http_req_blocked....................: avg=822.48µs min=0s       med=1µs      max=748.18ms p(90)=1µs      p(99)=24.48ms
+     http_req_connecting.................: avg=107.07µs min=0s       med=0s       max=34.27ms  p(90)=0s       p(99)=4.85ms 
+     http_req_duration...................: avg=449.38ms min=6.4ms    med=355.39ms max=2.84s    p(90)=813.38ms p(99)=1.45s  
+       { expected_response:true }........: avg=450.1ms  min=53.1ms   med=355.84ms max=2.84s    p(90)=813.52ms p(99)=1.45s  
+     http_req_failed.....................: 0.16%   ✓ 5         ✗ 2966
+     http_req_receiving..................: avg=6.93ms   min=38µs     med=5.93ms   max=200.09ms p(90)=10.67ms  p(99)=20.86ms
+     http_req_sending....................: avg=220.15µs min=59µs     med=181µs    max=18.04ms  p(90)=364µs    p(99)=527.6µs
+     http_req_tls_handshaking............: avg=438.52µs min=0s       med=0s       max=273.22ms p(90)=0s       p(99)=18.22ms
+     http_req_waiting....................: avg=442.22ms min=6.22ms   med=348.16ms max=2.83s    p(90)=801.55ms p(99)=1.44s  
+     http_reqs...........................: 2971    44.611674/s
+     iteration_duration..................: avg=451.75ms min=7.27ms   med=355.66ms max=6.17s    p(90)=813.05ms p(99)=1.46s  
+     iterations..........................: 2962    44.476533/s
+     requests over specified threshold...: 150     2.252356/s
+     vus.................................: 48      min=0       max=48
+     vus_max.............................: 48      min=10      max=48

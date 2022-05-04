@@ -51,22 +51,19 @@ export const defaultRateOptions = {
       maxVUs: maxVUs,
     }
   },
-
-  thresholds: {
-    http_req_duration: ['p(99)<1000'], // 99% of requests must complete below 1s
-    iteration_duration: ['p(95)<3000'] // 95% of the iteration duration below 2s
-  },
+  
+  summaryTrendStats: ["avg", "min", "med", "max", "p(90)", "p(99)"],
 
   ext: {
     loadimpact: {
       projectID: 3560234,
       distribution: {
         londonDistribution: {
-          loadZone: 'amazon:gb:london',
+          loadZone: 'amazon:sg:singapore',
           percent: 50
         },
         dublinDistribution: {
-          loadZone: 'amazon:ie:dublin',
+          loadZone: 'amazon:cn:hong kong',
           percent: 50
         },
       }
@@ -86,7 +83,7 @@ export function getUserIDForMultiUser(iterationValue) {
 
   const userID = baseNumber + (it);
 
-  return `klvn_live+s${userID}@kidsloop.vn`
+  return `qavn1+student${userID}@calmid.com`
 }
 
 export function getUserPool(returnIDs = false) {
@@ -100,13 +97,14 @@ export function getUserPool(returnIDs = false) {
   else {
     vus = env.vus;
   }
-
+  let userData = loginSetupB2C(env.USERNAME);
   for (let index = 0; index < vus; index++) {
     if (returnIDs) {
       returnVal[index] = loginSetupB2C(getUserIDForMultiUser(index + 1), true)
     }
     else {
-      returnVal[index] = loginSetupB2C(getUserIDForMultiUser(index + 1))
+      // returnVal[index] = loginSetupB2C(getUserIDForMultiUser(index + 1))
+      returnVal[index] = userData;
     }
   }
 
